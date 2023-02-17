@@ -1,0 +1,52 @@
+{%extends 'layout.html' %}
+
+{%block content %}
+
+{% load static %}
+
+<header class="row bg-light">
+    <div class="col-md-4">
+        <img src="{% static  'portfolio/perfil.jpg' %}" alt="">
+    </div>
+
+    <div class="col-md-8 my-auto">
+        <h1> Soy <strong> Abi Amado </strong></h1>
+        <h3> Soy desarroladora Fullstack</h3>
+        <p>Como desarrolladora Full Stack, poseo una base sólida tanto en el desarrollo front-end como en el back-end, lo que me permite diseñar y crear aplicaciones web dinámicas e interactivas. Aunque puedo ser nuevo en la industria, tengo una sólida comprensión de los conceptos básicos de programación, así como experiencia trabajando con varios lenguajes de programación, marcos y herramientas.
+
+            Mis habilidades técnicas incluyen dominio de HTML, CSS, JavaScript y otras tecnologías front-end, así como experiencia trabajando con tecnologías back-end como Node.js, Python y bases de datos como MySQL y MongoDB. Estoy familiarizado con frameworks populares como React y Angular, y también soy experto en secuencias de comandos del lado del servidor con tecnologías como Express.js y Flask.
+            </p>
+            <a href="{% static 'portfolio/curriculum vitae ABI.pdf' %}" class="btn btn-primary btn-lg rounded-0 my-3">Dowload CV </a>
+
+    </div>
+</header>
+
+<div class=".row.my-4 text-center">
+    <h3>Mis Proyectos</h3>
+
+    {%  for project in projects %}
+
+    <div class="col-md-4 p-4>
+    <div class="card bg-black card-project">
+        <img src="{{project.image.url}}" alt="{{project.title}}" class="card-img-top"/>
+        <div class="card-body"></div>
+
+        <h2>{{project.title}}</h2>
+        <p>{{project.descrition}}</p>
+        
+        
+            {% if project.url %}
+            <a href="{{project.url}}" class="btn btn-light rounded-0 btn-sm" target="_blank">{{project.url}} </a>
+        
+            {%endif %}
+    </div>
+    </div>
+    
+        {% endfor %} 
+    
+        {%endblock %}
+
+</div>
+
+
+
